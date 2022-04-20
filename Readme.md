@@ -1,3 +1,5 @@
+This repository contains a sqlite FTS enabled search model to predict the category of a search query.
+
 ### How to run ?
 
 1. Unzip/clone the repo.
