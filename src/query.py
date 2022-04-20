@@ -1,9 +1,12 @@
+import logging
 import os
 import sqlite3
 
 import pandas as pd
 
 from .transformers import process_pipeline
+
+logger = logging.getLogger()
 
 
 class Vars:
@@ -61,5 +64,5 @@ class QueryToCategory(Vars):
                     where title MATCH "{queryp}"
                     limit 1"""
             ).fetchall()
-        print(f"Predicted category: {cat}")
+        logger.info(f"Predicted category: {cat}")
         return cat
