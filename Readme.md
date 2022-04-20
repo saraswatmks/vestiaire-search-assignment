@@ -1,7 +1,7 @@
 ### How to run ?
 
-1. Unzip the data
-2. Go to the project root
+1. Unzip/clone the repo.
+2. In your local terminal, go to the project root
 3. Create a conda env using `make create_environment`
 4. Activate the env using `conda activate search`
 5. Code can be executed using command line but the keywords indexing needs to be done everytime. So is better to use ipython in terminal.
@@ -13,7 +13,8 @@ Run the following code from the project root to run search:
 >>> from src.query import QueryToCategory
 >>> q = QueryToCategory()
 >>> q.search("black trouser")
->>> q.search("prada")
+>>> q.search("green armani")
+>>> q.search("green arman")
 ```
 
 ### Approach Taken
