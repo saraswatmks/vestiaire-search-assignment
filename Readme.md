@@ -6,7 +6,7 @@
 4. Activate the env using `conda activate search`
 5. Code can be executed using command line but the keywords indexing needs to be done everytime. So is better to use ipython in terminal.
 
-Run the following code to run search:
+Run the following code from the project root to run search:
 
 ```python
 >>> ipython
