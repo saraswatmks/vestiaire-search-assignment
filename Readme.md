@@ -8,11 +8,13 @@
 
 Run the following code to run search:
 
-> > > ipython
-> > > from src.query import QueryToCategory
-> > > q = QueryToCategory()
-> > > q.search("black trouser")
-> > > q.search("prada")
+```python
+>>> ipython
+>>> from src.query import QueryToCategory
+>>> q = QueryToCategory()
+>>> q.search("black trouser")
+>>> q.search("prada")
+```
 
 ### Approach Taken
 
