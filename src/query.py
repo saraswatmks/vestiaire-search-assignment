@@ -66,5 +66,15 @@ class QueryToCategory(Vars):
                     ORDER BY rank
                     LIMIT 10"""
             ).fetchall()
+        # do broad match for spell errors
+        if not cat:
+            queryp = " OR ".join(query.split())
+            cat = self._cur.execute(
+                f"""SELECT category, rank*-1
+                    FROM logs
+                    WHERE title MATCH "{queryp}"
+                    ORDER BY rank
+                    LIMIT 10"""
+            ).fetchall()
         logger.info(f"Predicted category: {cat}")
         return cat
