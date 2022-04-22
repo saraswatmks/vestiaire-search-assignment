@@ -50,19 +50,21 @@ class QueryToCategory(Vars):
         # do exact match
         if not cat:
             cat = self._cur.execute(
-                f"""select category
-                    from logs
-                    where title MATCH "{query}"
-                    limit 1"""
+                f"""SELECT category, rank*-1
+                    FROM logs
+                    WHERE title MATCH "{query}"
+                    ORDER BY rank
+                    LIMIT 10"""
             ).fetchall()
         # do partial match for spell errors
         if not cat:
             queryp = " ".join(f"{w}*" for w in query.split())
             cat = self._cur.execute(
-                f"""select category
-                    from logs
-                    where title MATCH "{queryp}"
-                    limit 1"""
+                f"""SELECT category, rank*-1
+                    FROM logs
+                    WHERE title MATCH "{queryp}"
+                    ORDER BY rank
+                    LIMIT 10"""
             ).fetchall()
         logger.info(f"Predicted category: {cat}")
         return cat
